@@ -1,10 +1,16 @@
+#Escriba un programa que entregue todos los divisores del número entero ingresado:
 
-for a in range(1, 11):
+numeroint = int(input("escriba un numero para darle todos los divisores: "))
 
-    for i in range(1, 11):
+divisores = []
 
-        m = i * a
+for i in range(1, numeroint + 1):
+    if numeroint % i == 0:
+        divisores.append(i)
 
-        print(f"{m:4}", end=" ")
+
+
     
-    print()
+         
+print(f"los divisores de {numeroint} son: {divisores}")
+                
