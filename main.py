@@ -1,26 +1,23 @@
-def factorial(n):
-    resultado = 1
-    for i in range(2, n + 1):
-        resultado *= i
-    return resultado
+def collatz_sequence(n):
+    secuencia = []
+    while n != 1:
+        secuencia.append(n)
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = 3 * n + 1
+    secuencia.append(1)  # Agregar el último término (1)
+    return secuencia
 
+# Solicitar al usuario que ingrese un número
+n = int(input("n: "))
 
-n = 10  # Comenzar desde 10!
-suma_e = 0.0
-ultimo_termino = 1.0  # Para el primer término (1/10!)
-diferencia = float('inf')  # Inicializar con infinito
+# Imprimir la secuencia de Collatz para el número ingresado
+secuencia = collatz_sequence(n)
+print(" ".join(map(str, secuencia)))
 
-
-while diferencia >= 0.0001:
-    nuevo_termino = 1 / factorial(n)
-    suma_e += nuevo_termino
-    
-    
-    if n > 10:  # Para evitar la diferencia inicial
-        diferencia = abs(nuevo_termino - ultimo_termino)
-    
-    ultimo_termino = nuevo_termino
-    n += 1  # Incrementar n para calcular el siguiente factorial
-
-
-print(f"Valor aproximado de e: {suma_e + 1}")  # Agregar el 1 por el término 1/0!
+# Graficar los largos de las secuencias de Collatz para los números menores que n
+print("\nLongitudes de las secuencias de Collatz:")
+for i in range(1, n + 1):
+    longitud = len(collatz_sequence(i))
+    print(f"{i} {'*' * longitud}")
