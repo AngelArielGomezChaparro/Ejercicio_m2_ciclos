@@ -1,17 +1,17 @@
-def calcular_pi(terminos):
-    pi_aproximado = 0
-    for n in range(terminos):
-        # La fórmula de la serie de Leibniz
-        pi_aproximado += ((-1) ** n) / (2 * n + 1)
+
+# Inicializar variables
+potencia = 1
+fraccion = 0.5
+suma_acumulada = 0.0
+
+# Imprimir encabezado
+print(f"{'Potencia':<10} {'Fraccion':<10} {'Suma':<10}")
+
+# Calcular potencias fraccionales de dos
+while fraccion > 0.000001:
+    suma_acumulada += fraccion
+    print(f"{potencia:<10} {fraccion:<10.6f} {suma_acumulada:<10.6f}")
     
-    return 4 * pi_aproximado
-
-
-decimales = int(input("Introduce el número de decimales que deseas para la aproximación de pi: "))
-
-
-terminos = 1000000
-pi_estimada = calcular_pi(terminos)
-
-
-print(f"Aproximación de pi con {decimales} decimales: {round(pi_estimada, decimales)}")
+    # Incrementar la potencia y calcular la siguiente fracción
+    potencia += 1
+    fraccion /= 2  # Cada fracción es la mitad de la anterior
