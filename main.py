@@ -1,11 +1,12 @@
+#Escriba un programa que genere todas las potencias de 2, desde la 0-ésima hasta la ingresada por el usuario:
 
-numero = int(input("ingrese un numero para mostrar la tabla de multiplicar: "))
+import math
 
 
+numero = int(input("Ingrese el exponente máximo para las potencias de 2: "))
 
-for i in range (1, 11):
 
-    resultado = numero * i
+for i in range(numero + 1):
+    potencia =  math.pow(2, i)
 
-    print(f"{numero} X {i} = {resultado}")
-    
+    print(f"{int(potencia)}")
