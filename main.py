@@ -1,23 +1,17 @@
-altura = int(input("Ingrese cuántas filas quiere que tenga: "))
-ancho = int(input("Ingrese cuántas columnas quiere que tenga: "))
-
-for i in range(altura):
-    print("*" * ancho)
-
-
-altura = int(input("Altura: "))
-
-for i in range(1, altura + 1):
-    print("*" * i)
+def calcular_pi(terminos):
+    pi_aproximado = 0
+    for n in range(terminos):
+        # La fórmula de la serie de Leibniz
+        pi_aproximado += ((-1) ** n) / (2 * n + 1)
+    
+    return 4 * pi_aproximado
 
 
+decimales = int(input("Introduce el número de decimales que deseas para la aproximación de pi: "))
 
-lado = int(input("Lado: "))
 
-# Triángulo superior
-for i in range(lado):
-    print(" " * (lado - i - 1) + "*" * (2 * i + 1))
+terminos = 1000000
+pi_estimada = calcular_pi(terminos)
 
-# Triángulo inferior
-for i in range(lado - 1):
-    print(" " * (i + 1) + "*" * (2 * (lado - i - 2) + 1))
+
+print(f"Aproximación de pi con {decimales} decimales: {round(pi_estimada, decimales)}")
