@@ -1,12 +1,17 @@
-#Escriba un programa que genere todas las potencias de 2, desde la 0-ésima hasta la ingresada por el usuario:
+#Escriba un programa que pida al usuario dos números enteros, y luego entregue la suma de todos 
+# los números que están entre ellos. Por ejemplo, si los números son 1 y 7, debe entregar como 
+# resultado 2 + 3 + 4 + 5 + 6 = 20.
 
-import math
+print ("escriba dos numeros para sumar todos los q estan dentro de ellos")
+numero1 = int(input("escriba su primer numero: "))
+numero2 = int(input("escriba el segundo numero: "))
 
+# esta variante if es para q aun el numero primero sea mayor funcione el codigo de todos modos
 
-numero = int(input("Ingrese el exponente máximo para las potencias de 2: "))
+if numero1 > numero2:
 
+    numero1, numero2 = numero2, numero1
+#El comando sum suma una secuencia de numeros proporcionados por el comando range
+suma = sum(range(numero1 + 1, numero2))
 
-for i in range(numero + 1):
-    potencia =  math.pow(2, i)
-
-    print(f"{int(potencia)}")
+print(F"La suma de los numero entre {numero1} y {numero2} = {suma}")
