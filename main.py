@@ -1,31 +1,23 @@
-#Un viajero desea saber cuánto tiempo tomó un viaje que realizó. Él tiene la duración en minutos de cada uno de los 
-#tramos del viaje.
-#Desarrolle un programa que permita ingresar los tiempos de viaje de los tramos y entregue como resultado el tiempo 
-#total de viaje en formato horas:minutos.
-#El programa deja de pedir tiempos de viaje cuando se ingresa un 0.
+altura = int(input("Ingrese cuántas filas quiere que tenga: "))
+ancho = int(input("Ingrese cuántas columnas quiere que tenga: "))
+
+for i in range(altura):
+    print("*" * ancho)
+
+
+altura = int(input("Altura: "))
+
+for i in range(1, altura + 1):
+    print("*" * i)
 
 
 
+lado = int(input("Lado: "))
 
+# Triángulo superior
+for i in range(lado):
+    print(" " * (lado - i - 1) + "*" * (2 * i + 1))
 
-print("Ingrese la duración de cada tramo en minutos (ingrese 0 para finalizar)")
-
-
-duraciones = []
-
-
-while True:
-    duracion = int(input("Duración tramo: "))
-    if duracion == 0:
-        break  # Termina el bucle si se ingresa 0
-    duraciones.append(duracion)  # Agregar la duración del tramo a la lista
-
-
-tiempoTotalMinutos = sum(duraciones)
-horas = tiempoTotalMinutos // 60
-minutos = tiempoTotalMinutos % 60
-
-
-print(f"El tiempo total de tramo a sido: {horas} horas con {minutos} minutos")
-
-                
+# Triángulo inferior
+for i in range(lado - 1):
+    print(" " * (i + 1) + "*" * (2 * (lado - i - 2) + 1))
